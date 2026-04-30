@@ -1,0 +1,26 @@
+From efa451223f520efcecd846ab60570886d93fbf8c Mon Sep 17 00:00:00 2001
+From: "Charlton, Scott R." <charlton.scott.dev@gmail.com>
+Date: Thu, 30 Apr 2026 16:15:22 -0600
+Subject: [PATCH] Fix CMake cross-compiling error by removing Python
+ Interpreter component
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 42e12f3..e280562 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -125,7 +125,7 @@ if(PHREEQCRM_BUILD_PYTHON)
+   endif()
+   find_package(SWIG REQUIRED)
+   ###find_package(Python 3.8 REQUIRED COMPONENTS Interpreter Development Development.Module NumPy)
+-  find_package(Python COMPONENTS Interpreter Development.Module NumPy REQUIRED)
++  find_package(Python COMPONENTS Development.Module NumPy REQUIRED)
+   # Set Python_ROOT_DIR to specify which python to use
+   # ie -DPython_ROOT_DIR=C:/Python38-x64
+ endif()
+-- 
+2.43.0
+
