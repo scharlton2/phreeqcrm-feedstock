@@ -14,6 +14,7 @@ source:
 build:
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
+  skip: match(python, "<3.11")
   script_env:
     - CMAKE_GENERATOR=Ninja
 
@@ -25,7 +26,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - cmake >=3.20
+    - cmake >=3.20,<4
     - make
     - ninja
     - swig
